@@ -1,7 +1,7 @@
 from src.inference import load_model
+import pytest
+
 
 def test_model_missing_handled():
-    try:
+    with pytest.raises(FileNotFoundError):
         load_model()
-    except FileNotFoundError:
-        assert True
