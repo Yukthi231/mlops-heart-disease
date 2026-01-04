@@ -1,6 +1,7 @@
 import pandas as pd
 import os
-from config import DATA_URL
+from src.config import DATA_URL
+
 
 def load_data():
     df = pd.read_csv(DATA_URL)

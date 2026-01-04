@@ -1,6 +1,7 @@
 import joblib
 import pandas as pd
-from config import MODEL_PATH
+from src.config import MODEL_PATH
+
 
 model = joblib.load(MODEL_PATH)
 
