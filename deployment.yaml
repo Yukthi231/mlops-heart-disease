@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: heart-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: heart
+  template:
+    metadata:
+      labels:
+        app: heart
+    spec:
+      containers:
+      - name: heart
+        image: yourdockerhub/heart-api
+        ports:
+        - containerPort: 8000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: heart-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: heart
+  ports:
+  - port: 80
+    targetPort: 8000
